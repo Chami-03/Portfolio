@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Chamikara Wijerathne - Aspiring Business Analyst · Data Analyst</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Load Three.js library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <style>
     :root{
@@ -263,7 +262,6 @@
         </div>
       </div>
       
-      <!-- Navigation links moved inside a proper NAV element -->
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -274,9 +272,7 @@
       
       <div class="controls">
         <button class="toggle" id="themeToggle" aria-label="Toggle theme">
-          <!-- Sun icon for light mode (shown when theme is dark) -->
           <svg class="sun-icon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <!-- Moon icon for dark mode (shown when theme is light) -->
           <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -309,7 +305,6 @@
       <aside class="canvas-wrap">
         <canvas id="threejs-canvas"></canvas>
         <div class="avatar neo" style="align-items:center">
-          <!-- SVG for avatar/skill cube visual identity -->
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#0ea5a4"/><stop offset="1" stop-color="#6b21a8"/></linearGradient></defs></svg>
           <div style="flex:1">
             <div style="font-weight:700">Skill Cube</div>
@@ -373,7 +368,6 @@
         </div>
 
         <div style="display:flex;align-items:center;gap:12px">
-          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/chamikarawijerathne/" target="_blank" title="LinkedIn">
             <img 
               src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
@@ -382,7 +376,6 @@
             >
           </a>
 
-          <!-- GitHub -->
           <a href="https://github.com/Chami-03" target="_blank" title="GitHub">
             <img 
               src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
@@ -527,9 +520,11 @@
       let t=0;
       function animate(){
         resize(); t+=0.01;
-        cube.rotation.x = Math.sin(t*0.6)*0.35;
-        cube.rotation.y = Math.cos(t*0.7)*0.45;
-        cube.rotation.z += 0.005;
+        // --- START: MODIFICATION FOR CONTINUOUS AUTO-ROTATE ---
+        cube.rotation.x += 0.003; 
+        cube.rotation.y += 0.005; 
+        cube.rotation.z += 0.001;
+        // --- END: MODIFICATION FOR CONTINUOUS AUTO-ROTATE ---
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
       }
