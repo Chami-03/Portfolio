@@ -663,9 +663,15 @@
 
     // Download resume (creates a PDF-like text file)
     document.getElementById('downloadResume').addEventListener('click', ()=>{
-      const blob = new Blob([`Chamikara Wijerathne\nAspiring Business Analyst / Data Analyst\n\nEducation:\nBSc (Hons) in IT (Information Systems Engineering) - SLIIT (2024 - Present)\n\nSkills:\nBusiness Analysis, SQL, Java (Spring Boot), MySQL, Data Analysis, Power BI basics.\n\nProjects:\n- Tutor Management System (Java/Spring Boot)\n- FitVital Hub (Team Project)\n- Mobile Banking Redesign (UX/BA)\n\nContact: chamiw.online@gmail.com`],{type:'text/plain'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'Chamikara_Wijerathne_Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      /* START OF REQUIRED CHANGE */
+      const pdfPath = './Chamikara_Wijerathne_Resume.pdf';
+      const a = document.createElement('a');
+      a.href = pdfPath; // Link to the local PDF file
+      a.download = 'Chamikara_Wijerathne_Resume.pdf'; // Suggested download name
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      /* END OF REQUIRED CHANGE */
     });
 
     // small interaction for 'Hire me' button
@@ -676,4 +682,3 @@
   </script>
 </body>
 </html>
-
