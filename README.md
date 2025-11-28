@@ -58,4 +58,5 @@ The project is intentionally kept simple to reduce maintenance overhead:
 
 index.html – Complete website including HTML, CSS, JS, and Three.js logic.
 
+
 README.md – This file.
