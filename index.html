@@ -82,39 +82,13 @@
     nav a:hover{background:color-mix(in srgb, var(--accent) 12%, transparent);transform:translateY(-3px)}
 
     .controls{display:flex;gap:8px;align-items:center}
-    
-    /* --- FIX START: BUTTON CENTERING --- */
     /* Theme toggle styling */
-    .toggle{
-      display:flex; /* Changed from inline-grid to flex */
-      align-items:center;
-      justify-content:center;
-      padding: 0; /* Important: removes default button padding */
-      width:38px;
-      height:38px;
-      background:transparent;
-      border-radius:10px;
-      border:1px solid var(--glass-border);
-      cursor:pointer
-    }
+    .toggle{display:inline-grid;place-items:center;width:38px;height:38px;background:transparent;border-radius:10px;border:1px solid var(--glass-border);cursor:pointer}
     .toggle svg{width:20px;height:20px;stroke:var(--icon-color)}
 
     /* Mobile menu button styling */
-    .menu-toggle{
-      display:none; /* Hidden on desktop */
-      align-items:center;
-      justify-content:center;
-      padding: 0; /* Important: removes default button padding */
-      width:38px;
-      height:38px;
-      border-radius:10px;
-      border:1px solid var(--glass-border);
-      cursor:pointer;
-      background:transparent;
-      color:var(--icon-color)
-    }
+    .menu-toggle{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--glass-border);cursor:pointer;background:transparent;align-items:center;justify-content:center;color:var(--icon-color)}
     .menu-toggle svg{stroke:var(--icon-color)}
-    /* --- FIX END --- */
 
 
     /* Hero */
@@ -251,10 +225,7 @@
 
       nav ul li { width: 100%; }
       nav a { padding: 12px 18px; display: block; }
-      
-      /* FIX: Enable flex display for menu toggle on mobile */
       .menu-toggle { display: flex; }
-      
       .cards { grid-template-columns: 1fr; } 
       .cta { flex-direction: column; gap: 8px; }
 
