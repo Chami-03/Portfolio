@@ -18,7 +18,7 @@
       --neo-shadow: 14px 14px 30px rgba(16,24,40,0.08), -10px -10px 20px rgba(255,255,255,0.9);
       --glass-border: rgba(255,255,255,0.5);
       --glass-blur: 10px;
-      --icon-color: #111827;
+      --icon-color: #111827; /* Dark icon for light mode */
     }
 
     [data-theme='dark']{
@@ -32,7 +32,7 @@
       --neo-shadow: inset 6px 6px 12px rgba(0,0,0,0.6), inset -6px -6px 12px rgba(255,255,255,0.02);
       --glass-border: rgba(255,255,255,0.06);
       --glass-blur: 8px;
-      --icon-color: #e6eef6;
+      --icon-color: #e6eef6; /* Light icon for dark mode */
     }
 
     /* Base Styling & Reset */
@@ -77,9 +77,11 @@
     nav a:hover{background:color-mix(in srgb, var(--accent) 12%, transparent);transform:translateY(-3px)}
 
     .controls{display:flex;gap:8px;align-items:center}
+    /* Theme toggle styling */
     .toggle{display:inline-grid;place-items:center;width:38px;height:38px;background:transparent;border-radius:10px;border:1px solid var(--glass-border);cursor:pointer}
     .toggle svg{width:20px;height:20px;stroke:var(--icon-color)}
 
+    /* Mobile menu button styling */
     .menu-toggle{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--glass-border);cursor:pointer;background:transparent;align-items:center;justify-content:center;color:var(--icon-color)}
     .menu-toggle svg{stroke:var(--icon-color)}
 
@@ -90,7 +92,7 @@
       grid-template-columns:1fr 420px;
       gap:38px;
       align-items:center;
-      margin-top:150px; 
+      margin-top:150px; /* INCREASED spacing for desktop */
     }
     .hero-left{padding:28px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-soft);backdrop-filter:blur(var(--glass-blur));border:1px solid var(--glass-border); transition: background .3s ease;}
 
@@ -106,7 +108,7 @@
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
     .card{padding:12px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);box-shadow:var(--neo-shadow); transition: background .3s ease;}
     .card strong {font-size: 14px;}
-    .card div {font-size: 11px !important;} 
+    .card div {font-size: 11px !important;} /* Make sure font size is small */
 
 
     /* Right column: low image + 3D canvas */
@@ -120,6 +122,7 @@
     .project{padding:18px;border-radius:12px;background:var(--card);box-shadow:var(--shadow-soft);border:1px solid var(--glass-border);transition:transform .35s cubic-bezier(.2,.9,.3,1)}
     .project:hover{transform:translateY(-4px) scale(1.005)}
 
+    /* Neumorphism example for contact card */
     .neo{
       padding:20px;
       border-radius:16px;
@@ -136,128 +139,26 @@
     .reveal.visible{opacity:1;transform:none}
 
     /* -------------------------------------- */
-    /* NEW CHATBOT STYLES */
-    /* -------------------------------------- */
-    #chat-overlay {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 360px;
-      height: 480px;
-      background: var(--card);
-      border-radius: 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--glass-border);
-      display: flex;
-      flex-direction: column;
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(20px) scale(0.95);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(var(--glass-blur));
-    }
-
-    #chat-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateY(0) scale(1);
-    }
-
-    .chat-header {
-      padding: 16px;
-      background: color-mix(in srgb, var(--accent) 15%, transparent);
-      border-bottom: 1px solid var(--glass-border);
-      border-radius: 16px 16px 0 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .chat-header h4 { margin: 0; font-size: 15px; color: var(--accent); }
-    .chat-close { background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer; }
-
-    .chat-messages {
-      flex: 1;
-      padding: 16px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      font-size: 13px;
-    }
-
-    .message {
-      padding: 10px 14px;
-      border-radius: 12px;
-      max-width: 80%;
-      line-height: 1.4;
-    }
-
-    .message.bot {
-      background: color-mix(in srgb, var(--muted) 10%, transparent);
-      color: var(--text);
-      align-self: flex-start;
-      border-bottom-left-radius: 2px;
-    }
-
-    .message.user {
-      background: var(--accent);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 2px;
-    }
-
-    .chat-input-area {
-      padding: 12px;
-      border-top: 1px solid var(--glass-border);
-      display: flex;
-      gap: 8px;
-    }
-
-    .chat-input {
-      flex: 1;
-      background: transparent;
-      border: 1px solid var(--glass-border);
-      border-radius: 8px;
-      padding: 8px 12px;
-      color: var(--text);
-      font-family: inherit;
-    }
-    .chat-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
-
-    .chat-send {
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 0 16px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    @media (max-width: 640px) {
-      #chat-overlay {
-        width: 100%; height: 100%; bottom: 0; right: 0; border-radius: 0;
-      }
-      .chat-header { border-radius: 0; }
-    }
-
-
     /* RESPONSIVE DESIGN - MEDIA QUERIES */
+    /* -------------------------------------- */
+
+    /* Tablet/Small Desktop (max 1024px) */
     @media (max-width: 1024px) {
       .wrap { padding: 0 24px; margin: 36px auto; }
       header { width: calc(100% - 48px); top: 12px; }
-      .hero { grid-template-columns: 1fr; gap: 24px; margin-top: 110px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; margin-top: 110px; } /* Increased margin for tablet clearance */
       .canvas-wrap { min-height: 320px; }
       h2.name { font-size: 30px; }
       .projects-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
       .cards { grid-template-columns: repeat(3, 1fr); } 
       .intro { font-size: 13px; }
+      
+      /* Navigation links need to fit better on tablet */
       nav ul { gap: 8px; }
       nav a { padding: 8px; }
     }
 
+    /* Mobile (max 640px) */
     @media (max-width: 640px) {
       .wrap { padding: 0 16px; margin: 24px auto; }
       header { width: calc(100% - 32px); top: 10px; }
@@ -270,28 +171,33 @@
       .canvas-wrap { min-height: 240px; }
       .avatar { padding: 12px; gap: 10px; }
       .avatar svg { width: 48px; height: 48px; }
-      .hero { margin-top: 110px; } 
+      .hero { margin-top: 110px; } /* INCREASED mobile spacing */
+      
+      /* FIX: Ensure intro text is fully visible on small screens */
       .intro { font-size: 12px; } 
 
+      /* Mobile Navigation Menu - Structure adjusted for corner controls */
       .nav {
+        /* Layout: Brand | Nav Links | Controls */
+        /* Change from flex to grid for flexible layout */
         display: grid;
-        grid-template-columns: auto 1fr auto; 
+        grid-template-columns: auto 1fr auto; /* Brand | Nav | Controls */
         gap: 10px;
         align-items: center;
       }
       
-      .brand { grid-column: 1 / 2; }
-      .controls { grid-column: 3 / 4; gap: 4px; }
+      .brand { grid-column: 1 / 2; } /* Left corner */
+      .controls { grid-column: 3 / 4; gap: 4px; } /* Right corner */
       
       nav {
-        grid-column: 1 / -1; 
-        order: 2; 
-        display: none; 
+        grid-column: 1 / -1; /* Full width for dropdown nav, spanning all columns */
+        order: 2; /* Put nav below the brand/controls row */
+        display: none; /* Hide default nav */
         width: 100%;
       }
 
       nav ul {
-        display: none; 
+        display: none; /* Hidden by default */
         flex-direction: column;
         width: 100%;
         margin-top: 10px; 
@@ -303,7 +209,9 @@
         backdrop-filter: blur(var(--glass-blur));
       }
 
-      .nav.menu-open nav { display: block; }
+      .nav.menu-open nav {
+        display: block; /* Show the entire nav container */
+      }
       .nav.menu-open nav ul {
         display: flex;
         border: 1px solid var(--glass-border);
@@ -316,6 +224,7 @@
       .cards { grid-template-columns: 1fr; } 
       .cta { flex-direction: column; gap: 8px; }
 
+      /* Contact section adjustments */
       .neo {
         flex-direction: column;
         align-items: flex-start !important;
@@ -328,12 +237,13 @@
       .neo .btn.primary { margin-left: 0; flex-grow: 1; }
     }
 
+    /* Only show full navigation on desktop/tablet */
     @media (min-width: 641px) {
-        .nav { grid-template-columns: auto 1fr auto; } 
+        .nav { grid-template-columns: auto 1fr auto; } /* Ensure desktop layout is correct */
         nav { 
-            display: flex !important; 
-            grid-column: 2 / 3; 
-            justify-content: flex-end; 
+            display: flex !important; /* Always show nav links */
+            grid-column: 2 / 3; /* Center the links */
+            justify-content: flex-end; /* Align links to the right */
         }
         .controls { grid-column: 3 / 4; }
         .menu-toggle { display: none; }
@@ -442,7 +352,7 @@
         <p style="margin:0;color:var(--muted);font-size:13px">Sri Lanka Institute of Information Technology (SLIIT) - 2nd year (since 2024)</p>
       </div>
       <h3 style="margin:0 0 12px">Skills & Tools</h3>
-      <p class="skill-text" style="margin:0;color:var(--muted);font-size:13px">Business Analysis · Requirement Gathering · SQL & MySQL · Power BI (learning) · Excel · Java (Spring Boot) · Git · UML & Flow Diagrams</p>
+      <p style="margin:0;color:var(--muted);font-size:13px">Business Analysis · Requirement Gathering · SQL & MySQL · Power BI (learning) · Excel · Java (Spring Boot) · Git · UML & Flow Diagrams</p>
     </section>
 
     <section id="contact" style="margin-top:28px" class="reveal">
@@ -481,22 +391,6 @@
 
     <footer>&copy; 2025 Chamikara Wijerathne. All rights reserved.</footer>
   </main>
-
-  <div id="chat-overlay">
-    <div class="chat-header">
-      <h4>Chami's AI Assistant</h4>
-      <button class="chat-close" id="closeChat">&times;</button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="message bot">
-        Hi! I'm an AI assistant for Chamikara's portfolio. I read the page content to answer your questions. Ask me about projects, skills, or education!
-      </div>
-    </div>
-    <div class="chat-input-area">
-      <input type="text" class="chat-input" id="chatInput" placeholder="Ask a question..." />
-      <button class="chat-send" id="sendChat">Send</button>
-    </div>
-  </div>
 
   <script>
     // Utility function to safely get style properties
@@ -558,13 +452,14 @@
     // 3D rotating cube (persists original feel)
     (function(){
       const canvas = document.getElementById('threejs-canvas');
-      if (!canvas || typeof THREE === 'undefined') return;
+      if (!canvas || typeof THREE === 'undefined') return; // Guard for script execution and THREE.js
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(35, canvas.clientWidth/canvas.clientHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
       renderer.setPixelRatio(window.devicePixelRatio);
       
+      // Initial size setup
       const initialResize = () => {
           const w = canvas.clientWidth; 
           const h = canvas.clientHeight;
@@ -575,14 +470,21 @@
       initialResize(); 
       camera.position.z = 3.2;
 
+      // create canvas textures for cube faces to show icons/text
       function makeFace(text){
         const c = document.createElement('canvas');
         c.width = 256; c.height = 256;
         const ctx = c.getContext('2d');
-        const accentColor = getCssVar('--accent') || '#0ea5a4';
         
-        ctx.fillStyle = accentColor;
+        // UPDATED: Create a gradient matching the requested mix (Teal to Purple)
+        // 135deg equivalent in canvas from top-left to bottom-right
+        const grd = ctx.createLinearGradient(0, 0, 256, 256);
+        grd.addColorStop(0, '#0ea5a4'); // Teal
+        grd.addColorStop(1, '#6b21a8'); // Purple
+        
+        ctx.fillStyle = grd;
         ctx.fillRect(0,0,256,256);
+        
         ctx.fillStyle = 'white';
         ctx.font = 'bold 36px Inter, sans-serif'; 
         ctx.textAlign = 'center';
@@ -608,6 +510,7 @@
       const amb = new THREE.AmbientLight(0xffffff, .45); scene.add(amb);
 
       function resize(){
+        // Handles canvas resizing when the window size changes
         const w = canvas.clientWidth; 
         const h = canvas.clientHeight;
         if(canvas.width !== w || canvas.height !== h){ 
@@ -618,15 +521,20 @@
       }
       window.addEventListener('resize', resize);
 
+
       let t=0;
       function animate(){
         resize(); t+=0.01;
+        // --- START: MODIFICATION FOR CONTINUOUS AUTO-ROTATE ---
         cube.rotation.x += 0.003; 
         cube.rotation.y += 0.005; 
         cube.rotation.z += 0.001;
+        // --- END: MODIFICATION FOR CONTINUOUS AUTO-ROTATE ---
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
       }
+      
+      // Ensure Three.js starts after the window loads and is stable
       window.onload = animate;
 
       const skills = [
@@ -639,6 +547,7 @@
       ];
       let skillIndex = 0;
       
+      // Custom Message Box implementation (since alert() is forbidden)
       function showMessageBox(title, message) {
           const existingBox = document.getElementById('custom-message-box');
           if (existingBox) existingBox.remove();
@@ -663,44 +572,59 @@
           });
       }
 
+
+      // click cycles through skill notes (using a custom box instead of alert)
       canvas.addEventListener('click', (e)=>{
+          // Prevent showing message box if dragging (only trigger on click/tap)
           if (e._isDragging) return; 
           showMessageBox('Skill Focus', skills[skillIndex]);
           skillIndex = (skillIndex + 1) % skills.length;
       });
       
+      // drag rotation logic
       let isDown=false, lastX=0, lastY=0, startX=0, startY=0;
-      const DRAG_THRESHOLD = 5; 
+      const DRAG_THRESHOLD = 5; // Pixels threshold to consider it a drag vs click
 
       const handlePointerDown = (e) => { 
+          // Get coordinates from mouse or first touch
           const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
           const clientY = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+
           isDown = true; 
           startX = lastX = clientX;
           startY = lastY = clientY;
-          e.currentTarget._isDragging = false; 
+          e.currentTarget._isDragging = false; // Reset drag flag
           if(e.setPointerCapture) e.setPointerCapture(e.pointerId); 
       };
       const handlePointerUp = (e) => { 
           isDown=false; 
+          // Check if it was a drag or a click
           const dx = Math.abs(lastX - startX);
           const dy = Math.abs(lastY - startY);
           if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) {
+              // If movement exceeds threshold, mark as drag
               canvas._isDragging = true;
           } else {
+              // Otherwise, it was a click/tap
               canvas._isDragging = false;
           }
       };
       const handlePointerMove = (e) => { 
           if(!isDown) return; 
+          
           const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
           const clientY = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+
           const dx=(clientX-lastX)/200; 
           const dy=(clientY-lastY)/200; 
+          
           cube.rotation.y += dx; 
           cube.rotation.x += dy; 
+          
           lastX=clientX; 
           lastY=clientY; 
+          
+          // Mark as dragging while moving
           const totalDx = Math.abs(clientX - startX);
           const totalDy = Math.abs(clientY - startY);
           if (totalDx > DRAG_THRESHOLD || totalDy > DRAG_THRESHOLD) {
@@ -708,141 +632,54 @@
           }
       };
 
+      // Add mouse/touch events for rotation
       canvas.addEventListener('mousedown', handlePointerDown);
       window.addEventListener('mouseup', handlePointerUp);
       canvas.addEventListener('mousemove', handlePointerMove);
+      
+      // Use non-passive touch events to ensure handlePointerUp fires correctly after touchmove
       canvas.addEventListener('touchstart', (e) => handlePointerDown(e), { passive: false });
       window.addEventListener('touchend', handlePointerUp);
       canvas.addEventListener('touchmove', handlePointerMove, { passive: false });
+
     })();
 
-    // -----------------------------------------------------------
-    // UPGRADED AI ASSISTANT: DYNAMIC PAGE SCRAPER
-    // -----------------------------------------------------------
-    const chatOverlay = document.getElementById('chat-overlay');
-    const chatInput = document.getElementById('chatInput');
-    const chatMessages = document.getElementById('chatMessages');
-    const sendBtn = document.getElementById('sendChat');
-    const closeChatBtn = document.getElementById('closeChat');
-    const openBtn = document.getElementById('openAssistant');
-
-    function toggleChat() {
-      chatOverlay.classList.toggle('active');
-      if(chatOverlay.classList.contains('active')) chatInput.focus();
-    }
-
-    function addMessage(text, sender) {
-      const div = document.createElement('div');
-      div.className = `message ${sender}`;
-      div.innerHTML = text;
-      chatMessages.appendChild(div);
-      chatMessages.scrollTop = chatMessages.scrollHeight; 
-    }
-
-    // FUNCTION: Scrape the page to find answers
-    function generateDynamicResponse(query) {
-      const q = query.toLowerCase();
-
-      // 1. PROJECTS: Dynamically find all elements with class 'project'
-      if (q.includes('project') || q.includes('work') || q.includes('built') || q.includes('app')) {
-        const projectElements = document.querySelectorAll('#projects .project');
-        if (projectElements.length > 0) {
-          let response = "Here are the projects listed on the page:<br><br>";
-          projectElements.forEach((el, index) => {
-            const title = el.querySelector('h4') ? el.querySelector('h4').innerText : 'Untitled Project';
-            const desc = el.querySelector('p') ? el.querySelector('p').innerText : '';
-            response += `<strong>${index + 1}. ${title}</strong><br>${desc}<br><br>`;
-          });
-          return response;
-        } else {
-          return "I currently don't see any projects listed in the Projects section.";
-        }
-      }
-
-      // 2. SKILLS: Dynamically find the text in the skills section
-      if (q.includes('skill') || q.includes('tech') || q.includes('tool') || q.includes('java') || q.includes('sql')) {
-        // Try to find the specific paragraph with class .skill-text or the Education section
-        const skillsText = document.querySelector('.skill-text');
-        if (skillsText) {
-          return "According to the Skills section:<br><br>" + skillsText.innerText;
-        }
-        // Fallback: search whole education section
-        const eduSection = document.getElementById('education');
-        if (eduSection) return "Here is the info from the Education/Skills section: " + eduSection.innerText;
-      }
-
-      // 3. ABOUT / BIO
-      if (q.includes('about') || q.includes('who') || q.includes('chamikara') || q.includes('intro')) {
-        const aboutSection = document.getElementById('about');
-        const heroName = document.querySelector('.hero .name').innerText;
-        const heroLead = document.querySelector('.hero .lead').innerText;
-        
-        if (aboutSection) {
-          return `<strong>${heroName}</strong><br>${heroLead}<br><br><strong>More Info:</strong><br>${aboutSection.innerText.replace('About', '')}`;
-        }
-      }
-
-      // 4. CONTACT / EMAIL
-      if (q.includes('contact') || q.includes('email') || q.includes('hire') || q.includes('reach')) {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          // Extract email specifically if possible, otherwise dump section
-          const emailLink = contactSection.querySelector('a[href^="mailto"]');
-          const email = emailLink ? emailLink.innerText : "Check the footer or contact section.";
-          return `You can contact Chamikara at: <strong>${email}</strong>.<br>Check the Contact section for LinkedIn/GitHub links.`;
-        }
-      }
-      
-      // 5. EDUCATION
-      if (q.includes('education') || q.includes('degree') || q.includes('uni') || q.includes('study')) {
-         const eduSection = document.getElementById('education');
-         // Just get the first project card inside education (which holds the degree info)
-         const degreeInfo = eduSection.querySelector('.project'); 
-         if(degreeInfo) return degreeInfo.innerText;
-         return "He is an undergraduate at SLIIT.";
-      }
-
-      // 6. GREETINGS
-      if (q.includes('hi') || q.includes('hello')) {
-        return "Hello! I am scanning the page content right now. Ask me about the projects, skills, or contact info listed here.";
-      }
-
-      return "I'm looking at the page, but I'm not sure how to answer that based on the current text. Try asking about 'projects', 'skills', or 'contact'.";
-    }
-
-    function handleUserMessage() {
-      const text = chatInput.value.trim();
-      if (!text) return;
-
-      addMessage(text, 'user');
-      chatInput.value = '';
-
-      // Slight delay to simulate "reading"
-      setTimeout(() => {
-        const response = generateDynamicResponse(text);
-        addMessage(response, 'bot');
-      }, 500); 
-    }
-
-    openBtn.addEventListener('click', toggleChat);
-    closeChatBtn.addEventListener('click', toggleChat);
-    
-    sendBtn.addEventListener('click', handleUserMessage);
-    chatInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') handleUserMessage();
+    // Minimal "AI-powered" assistant UI — runs locally and returns structured suggestions for BA/DA
+    document.getElementById('openAssistant').addEventListener('click', ()=>{
+      const promptText = prompt('Describe what you want help with (example: "project summary", "BA case study", "SQL query")');
+      if(!promptText) return;
+      const out = localAssistant(promptText);
+      showMessageBox('AI Assistant Suggestion', out);
     });
 
-    // Download resume logic
+    function localAssistant(text){
+      text = (text||'').toLowerCase();
+      if(text.includes('ba')||text.includes('case')||text.includes('study')){
+        return 'Structure a BA case study:\n1) Project summary\n2) Business goal\n3) AS-IS vs TO-BE\n4) Requirements (MUST/HIGH/LOW)\n5) Deliverables (SRS, Flows)\n6) KPIs';
+      }
+      if(text.includes('sql')||text.includes('query')){
+        return 'SQL checklist:\n- SELECT columns\n- JOIN tables with keys\n- Use GROUP BY for aggregates\n- Apply WHERE for filtering and HAVING for aggregate filters';
+      }
+      if(text.includes('project')||text.includes('summary')){
+        return 'Project summary template:\nContext (1 line) · Stack · Problem solved · Key outcome · Next steps';
+      }
+      return 'Try: specify a goal (e.g. highlight SQL skills), role (BA/DA), and one deliverable (e.g. Power BI mock).';
+    }
+
+    // Download resume (creates a PDF-like text file)
     document.getElementById('downloadResume').addEventListener('click', ()=>{
+      /* START OF REQUIRED CHANGE */
       const pdfPath = './Chamikara_Wijerathne_Resume.pdf';
       const a = document.createElement('a');
-      a.href = pdfPath; 
-      a.download = 'Chamikara_Wijerathne_Resume.pdf'; 
+      a.href = pdfPath; // Link to the local PDF file
+      a.download = 'Chamikara_Wijerathne_Resume.pdf'; // Suggested download name
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      /* END OF REQUIRED CHANGE */
     });
 
+    // small interaction for 'Hire me' button
     document.getElementById('hireBtn').addEventListener('click', ()=>{
       const email = 'mailto:chamiw.online@gmail.com?subject=Collaboration%20or%20Opportunity';
       window.location.href = email;
