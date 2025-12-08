@@ -34,6 +34,11 @@
       --glass-blur: 8px;
       --icon-color: #e6eef6; /* Light icon for dark mode */
     }
+    
+    /* FIX: Invert GitHub icon color in dark mode so it becomes white */
+    [data-theme='dark'] .gh-icon {
+      filter: invert(1);
+    }
 
     /* Base Styling & Reset */
     *{box-sizing:border-box}
@@ -378,9 +383,10 @@
 
           <a href="https://github.com/Chami-03" target="_blank" title="GitHub">
             <img 
-              src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+              class="gh-icon"
+              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" 
               alt="GitHub"
-              style="width:32px;height:32px;border-radius:6px;box-shadow:var(--neo-shadow)"
+              style="width:32px;height:32px;border-radius:50%;box-shadow:var(--neo-shadow)"
             >
           </a>
 
@@ -666,7 +672,7 @@
       return 'Try: specify a goal (e.g. highlight SQL skills), role (BA/DA), and one deliverable (e.g. Power BI mock).';
     }
 
-    // Download resume (creates a PDF-like text file)
+    // Download resume
     document.getElementById('downloadResume').addEventListener('click', ()=>{
       /* START OF REQUIRED CHANGE */
       const pdfPath = './Chamikara_Wijerathne_Resume.pdf';
