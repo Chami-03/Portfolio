@@ -1,6 +1,6 @@
 🚀 Chamikara Wijerathne – Aspiring Business Analyst / Data Analyst Portfolio
 
-This repository hosts a modern, single-page portfolio website for Chamikara Wijerathne, an IT undergraduate specializing in Business Analysis and Data Analysis. The design combines Neumorphism and Glassmorphism, featuring a dynamic theme toggle and an interactive 3D skill cube.
+This repository hosts a modern, single-page portfolio website for Chamikara Wijerathne, an IT undergraduate specializing in Information Systems Engineering. The design combines Neumorphism and Glassmorphism, featuring a dynamic theme toggle and an interactive 3D skill cube.
 
 🌟 Key Features
 
@@ -14,7 +14,7 @@ Powered by Three.js.
 
 Rotate by hovering or dragging.
 
-Click or tap to reveal a short note about each skill (BA, DA, SQL, etc.).
+Click or tap to reveal a short note about each skill (PM, BA, DA, SQL, etc.).
 
 Single-Page Layout: Smooth scrolling navigation to sections including About, Projects, and Contact.
 
