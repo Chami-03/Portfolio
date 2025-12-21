@@ -1,4 +1,4 @@
-🚀 Chamikara Wijerathne – Portfolio
+🚀 Chamikara Wijerathne - Portfolio
 
 This repository hosts a modern, single-page portfolio website for Chamikara Wijerathne, an IT undergraduate specializing in Information Systems Engineering. The design combines Neumorphism and Glassmorphism, featuring a dynamic theme toggle and an interactive 3D skill cube.
 
