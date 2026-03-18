@@ -448,7 +448,7 @@
             >
           </a>
 
-          <a class="btn primary" style="margin-left:8px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;" id="hireBtn" href="mailto:chamiw.online@gmail.com?subject=Collaboration%20or%20Opportunity">Hire / Collab</a>
+          <a class="btn primary" style="margin-left:8px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;" id="hireBtn" href="https://outlook.office.com/mail/deeplink/compose?to=chamiw.online%40gmail.com&subject=Collaboration%20or%20Opportunity" target="_blank" rel="noopener">Hire / Collab</a>
         </div>
       </div>
     </section>
@@ -736,14 +736,12 @@
       const pdfPath = './Chamikara_Wijerathne_Resume.pdf';
       const a = document.createElement('a');
       a.href = pdfPath; // Link to the local PDF file
-      a.download = 'Chamikara_Wijerathne_Resume.pdf'; // Suggested download name
+      a.download = 'Chamikara_Wijerathne_Resume.pdf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       
     });
-
-    // Hire / Collab is handled by direct mailto link for reliable behavior on all viewports.
   </script>
 </body>
 </html>
