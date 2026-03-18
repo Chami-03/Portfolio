@@ -123,6 +123,8 @@
     .project-line{margin:0 0 8px;color:var(--muted);font-size:13px;line-height:1.5}
     .project-line strong{color:var(--text)}
     .project-stack{color:var(--muted);font-size:12px}
+    .timeline-row{margin-top:10px;display:flex;justify-content:flex-end}
+    .timeline-date{white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600}
 
     
     .neo{
@@ -368,53 +370,51 @@
     <section id="education" class="reveal">
       <h3 style="margin:0 0 12px">Education</h3>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-        <h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
-          <span>BSc (Hons) in Information Technology - Specialising in Information Systems Engineering</span>
-          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">10/2024 - Present</span>
-        </h4>
+        <h4 style="margin:0 0 6px;">BSc (Hons) in Information Technology - Specialising in Information Systems Engineering</h4>
         <p style="margin:0;color:var(--muted);font-size:13px">Sri Lanka Institute of Information Technology (SLIIT) - 2nd year</p>
+        <div class="timeline-row"><span class="timeline-date">10/2024 - Present</span></div>
       </div>
 
     <section id="Certifications" class="reveal">
       <h3 style="margin:0 0 12px">Certifications</h3>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+	<h4 style="margin:0 0 6px;">
           <span>Foundations of Business Intelligence
             <span style="font-weight: normal;"> - Google Business Intelligence Professional Certificate</span>
           </span>
-          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">01/2026</span>
         </h4>
 	<p style="margin:0;color:var(--muted);font-size:13px">Google Career Certificates (Coursera)</p>
+        <div class="timeline-row"><span class="timeline-date">01/2026</span></div>
       </div>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-  	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+  	<h4 style="margin:0 0 6px;">
           <span>Foundations: Data, Data, Everywhere
             <span style="font-weight: normal;"> - Google Data Analytics Professional Certificate</span>
           </span>
-          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">01/2026</span>
         </h4>
   	<p style="margin:0;color:var(--muted);font-size:13px">Google Career Certificates (Coursera)</p>
+        <div class="timeline-row"><span class="timeline-date">01/2026</span></div>
       </div>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-  	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+    	<h4 style="margin:0 0 6px;">
           <span>Introduction to Business Analysis
 	        <span style="font-weight: normal;"> - IBM Business Analyst Professional Certificate</span>
           </span>
-          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">12/2025</span>
         </h4>
   	<p style="margin:0;color:var(--muted);font-size:13px">IBM Career Certificates (Coursera)</p>
+        <div class="timeline-row"><span class="timeline-date">12/2025</span></div>
       </div>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+	<h4 style="margin:0 0 6px;">
           <span>Foundations of Project Management
 	        <span style="font-weight: normal;"> - Google Project Management Professional Certificate</span>
           </span>
-          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">12/2025</span>
         </h4>
     	<p style="margin:0;color:var(--muted);font-size:13px">Google Career Certificates (Coursera)</p>
+        <div class="timeline-row"><span class="timeline-date">12/2025</span></div>
       </div>
 
-      <h3 style="margin:24px 0 12px">Skills & Tools</h3>
+      <h3 style="margin:48px 0 12px">Skills & Tools</h3>
       <p style="margin:0;color:var(--muted);font-size:13px">Project Planning · Stakeholder Communication · Requirements Analysis · Requirement Gathering · Data Analysis · Data Visualization · SQL & MySQL · Power BI · Excel · Java (Spring Boot) · Git · UML & Flow Diagrams</p>
     </section>
 
@@ -448,7 +448,7 @@
             >
           </a>
 
-          <button class="btn primary" style="margin-left:8px" id="hireBtn">Hire / Collab</button>
+          <a class="btn primary" style="margin-left:8px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;" id="hireBtn" href="mailto:chamiw.online@gmail.com?subject=Collaboration%20or%20Opportunity">Hire / Collab</a>
         </div>
       </div>
     </section>
@@ -743,11 +743,7 @@
       
     });
 
-    // small interaction for 'Hire me' button
-    document.getElementById('hireBtn').addEventListener('click', ()=>{
-      const email = 'mailto:chamiw.online@gmail.com?subject=Collaboration%20or%20Opportunity';
-      window.location.href = email;
-    });
+    // Hire / Collab is handled by direct mailto link for reliable behavior on all viewports.
   </script>
 </body>
 </html>
