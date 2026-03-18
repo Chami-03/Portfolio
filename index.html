@@ -20,7 +20,7 @@
       --neo-shadow: 14px 14px 30px rgba(16,24,40,0.08), -10px -10px 20px rgba(255,255,255,0.9);
       --glass-border: rgba(255,255,255,0.5);
       --glass-blur: 10px;
-      --icon-color: #111827; /* Dark icon for light mode */
+      --icon-color: #111827; 
     }
 
     [data-theme='dark']{
@@ -34,15 +34,13 @@
       --neo-shadow: inset 6px 6px 12px rgba(0,0,0,0.6), inset -6px -6px 12px rgba(255,255,255,0.02);
       --glass-border: rgba(255,255,255,0.06);
       --glass-blur: 8px;
-      --icon-color: #e6eef6; /* Light icon for dark mode */
+      --icon-color: #e6eef6; 
     }
     
-    /* FIX: Invert GitHub icon color in dark mode so it becomes white */
     [data-theme='dark'] .gh-icon {
       filter: invert(1);
     }
 
-    /* Base Styling & Reset */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -56,11 +54,10 @@
       overflow-x:hidden;
     }
 
-    /* Utility classes */
     .wrap{max-width:1100px;margin:48px auto;padding:0 32px;}
     section{margin-top:48px}
 
-    /* Header & Navigation */
+    
     header{
       position:fixed;left:50%;transform:translateX(-50%);top:18px;width:calc(100% - 64px);max-width:1100px;z-index:40
     }
@@ -84,22 +81,19 @@
     nav a:hover{background:color-mix(in srgb, var(--accent) 12%, transparent);transform:translateY(-3px)}
 
     .controls{display:flex;gap:8px;align-items:center}
-    /* Theme toggle styling */
+    
     .toggle{display:inline-grid;place-items:center;width:38px;height:38px;background:transparent;border-radius:10px;border:1px solid var(--glass-border);cursor:pointer}
     .toggle svg{width:20px;height:20px;stroke:var(--icon-color)}
 
-    /* Mobile menu button styling */
     .menu-toggle{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--glass-border);cursor:pointer;background:transparent;align-items:center;justify-content:center;color:var(--icon-color)}
     .menu-toggle svg{stroke:var(--icon-color)}
 
-
-    /* Hero */
     .hero{
       display:grid;
       grid-template-columns:1fr 420px;
       gap:38px;
       align-items:center;
-      margin-top:150px; /* INCREASED spacing for desktop */
+      margin-top:150px; 
     }
     .hero-left{padding:28px;border-radius:14px;background:var(--card);box-shadow:var(--shadow-soft);backdrop-filter:blur(var(--glass-blur));border:1px solid var(--glass-border); transition: background .3s ease;}
 
@@ -108,28 +102,29 @@
     p.lead{margin:0 0 18px;line-height:1.5;color:var(--muted)}
 
     .cta{display:flex;gap:12px}
-    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700;transition:all .3s ease}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-family:inherit;font-size:14px;line-height:1.2;letter-spacing:.15px;font-weight:700;text-rendering:optimizeLegibility;transition:all .3s ease}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#6b21a8);color:white;box-shadow:0 8px 30px rgba(14,165,164,0.14);}
     .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
 
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
     .card{padding:12px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);box-shadow:var(--neo-shadow); transition: background .3s ease;}
     .card strong {font-size: 14px;}
-    .card div {font-size: 11px !important;} /* Make sure font size is small */
-
-
-    /* Right column: low image + 3D canvas */
+    .card div {font-size: 11px !important;}
+    
     .canvas-wrap{position:relative;border-radius:14px;overflow:hidden;min-height:360px;display:grid;grid-template-rows:1fr auto;background:linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));border:1px solid var(--glass-border);backdrop-filter:blur(var(--glass-blur))}
     #threejs-canvas{width:100%;height:100%;display:block}
     .avatar{padding:16px;display:flex;gap:12px;align-items:center}
     .avatar svg{width:56px;height:56px;border-radius:10px}
 
-    /* Projects */
+    
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
     .project{padding:18px;border-radius:12px;background:var(--card);box-shadow:var(--shadow-soft);border:1px solid var(--glass-border);transition:transform .35s cubic-bezier(.2,.9,.3,1)}
     .project:hover{transform:translateY(-4px) scale(1.005)}
+    .project-line{margin:0 0 8px;color:var(--muted);font-size:13px;line-height:1.5}
+    .project-line strong{color:var(--text)}
+    .project-stack{color:var(--muted);font-size:12px}
 
-    /* Neumorphism example for contact card */
+    
     .neo{
       padding:20px;
       border-radius:16px;
@@ -139,29 +134,33 @@
     }
     .neo a{color:var(--accent)}
 
+    .contact-card{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .contact-info{flex:1;min-width:0}
+    .contact-actions{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end;flex-wrap:wrap}
+
     footer{margin:56px 0 28px;padding-bottom: 20px;text-align:center;color:var(--muted)}
 
-    /* Scroll animations */
+    
     .reveal{opacity:0;transform:translateY(14px) scale(.995);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1)}
     .reveal.visible{opacity:1;transform:none}
 
-    /* Tablet/Small Desktop (max 1024px) */
+    
     @media (max-width: 1024px) {
       .wrap { padding: 0 24px; margin: 36px auto; }
       header { width: calc(100% - 48px); top: 12px; }
-      .hero { grid-template-columns: 1fr; gap: 24px; margin-top: 110px; } /* Increased margin for tablet clearance */
+      .hero { grid-template-columns: 1fr; gap: 24px; margin-top: 110px; } 
       .canvas-wrap { min-height: 320px; }
       h2.name { font-size: 30px; }
       .projects-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
       .cards { grid-template-columns: repeat(3, 1fr); } 
       .intro { font-size: 13px; }
       
-      /* Navigation links need to fit better on tablet */
+      
       nav ul { gap: 8px; }
       nav a { padding: 8px; }
     }
 
-    /* Mobile (max 640px) */
+    
     @media (max-width: 640px) {
       .wrap { padding: 0 16px; margin: 24px auto; }
       header { width: calc(100% - 32px); top: 10px; }
@@ -174,33 +173,33 @@
       .canvas-wrap { min-height: 240px; }
       .avatar { padding: 12px; gap: 10px; }
       .avatar svg { width: 48px; height: 48px; }
-      .hero { margin-top: 110px; } /* INCREASED mobile spacing */
+      .hero { margin-top: 110px; } 
       
-      /* FIX: Ensure intro text is fully visible on small screens */
+      
       .intro { font-size: 12px; } 
 
-      /* Mobile Navigation Menu - Structure adjusted for corner controls */
+      
       .nav {
-        /* Layout: Brand | Nav Links | Controls */
-        /* Change from flex to grid for flexible layout */
+        
+        
         display: grid;
-        grid-template-columns: auto 1fr auto; /* Brand | Nav | Controls */
+        grid-template-columns: auto 1fr auto; 
         gap: 10px;
         align-items: center;
       }
       
-      .brand { grid-column: 1 / 2; } /* Left corner */
-      .controls { grid-column: 3 / 4; gap: 4px; } /* Right corner */
+      .brand { grid-column: 1 / 2; } 
+      .controls { grid-column: 3 / 4; gap: 4px; } 
       
       nav {
-        grid-column: 1 / -1; /* Full width for dropdown nav, spanning all columns */
-        order: 2; /* Put nav below the brand/controls row */
-        display: none; /* Hide default nav */
+        grid-column: 1 / -1; 
+        order: 2; 
+        display: none; 
         width: 100%;
       }
 
       nav ul {
-        display: none; /* Hidden by default */
+        display: none; 
         flex-direction: column;
         width: 100%;
         margin-top: 10px; 
@@ -213,7 +212,7 @@
       }
 
       .nav.menu-open nav {
-        display: block; /* Show the entire nav container */
+        display: block; 
       }
       .nav.menu-open nav ul {
         display: flex;
@@ -227,30 +226,30 @@
       .cards { grid-template-columns: 1fr; } 
       .cta { flex-direction: column; gap: 8px; }
 
-      /* Contact section adjustments */
-      .neo {
+      
+      .contact-card {
         flex-direction: column;
-        align-items: flex-start !important;
+        align-items: flex-start;
       }
-      .neo > div:last-child {
+      .contact-actions {
         margin-top: 12px;
         width: 100%;
         justify-content: space-between;
       }
-      .neo .btn.primary { margin-left: 0; flex-grow: 1; }
+      .contact-actions .btn.primary { margin-left: 0 !important; flex-grow: 1; }
     }
 	html {
  	 scroll-behavior: smooth;
   	 scroll-padding-top: 100px;
 	}
 	
-    /* Only show full navigation on desktop/tablet */
+    
     @media (min-width: 641px) {
-        .nav { grid-template-columns: auto 1fr auto; } /* Ensure desktop layout is correct */
+        .nav { grid-template-columns: auto 1fr auto; } 
         nav { 
-            display: flex !important; /* Always show nav links */
-            grid-column: 2 / 3; /* Center the links */
-            justify-content: flex-end; /* Align links to the right */
+            display: flex !important; 
+            grid-column: 2 / 3; 
+            justify-content: flex-end; 
         }
         .controls { grid-column: 3 / 4; }
         .menu-toggle { display: none; }
@@ -263,7 +262,7 @@
     <div class="nav" id="mainNav">
       <div class="brand">
         <div class="logo" aria-hidden>CW</div>
-        <div>
+        <div class="contact-info">
           <h1 style="margin:0;font-size:14px">Chamikara Wijerathne</h1>
           <p style="margin:0;font-size:11px;color:var(--muted)">Aspiring Business Analyst · Data Analyst</p>
         </div>
@@ -299,7 +298,7 @@
 
         <div class="cta">
           <button class="btn primary" id="downloadResume">Resume</button>
-          <button class="btn ghost" id="openAssistant">AI Assistant</button>
+          <button class="btn ghost" id="contactMeBtn">Contact Me</button>
         </div>
 
         <div class="cards" style="margin-top:18px">
@@ -333,33 +332,35 @@
 
 	<article class="project reveal">
           <h4 style="margin:0 0 6px">Smart Business Intelligence and Decision Support System (Smart BI)</h4>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:13px">The project develops a web-based decision support system that transforms raw business data into meaningful insights. It processes and analyzes datasets, visualizes key trends through interactive dashboards, and applies forecasting models to support data-driven business decisions.</p>
-          <small style="color:var(--muted)">Python (Flask) · pandas · NumPy · MySQL</small>
+          <p class="project-line"><strong>Problem:</strong> Business data was available, but teams lacked a decision-ready insights workflow.</p>
+          <p class="project-line"><strong>What I Did:</strong> Built data processing and dashboard modules with analysis and forecasting support.</p>
+          <p class="project-line"><strong>Outcome:</strong> Enabled clearer trend visibility and faster business decision-making support.</p>
+          <small class="project-stack">Python (Flask) · pandas · NumPy · MySQL</small>
           <div style="margin-top:10px"><a href="https://github.com/Chami-03/smart-bi-system" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">View on GitHub →</a></div>
         </article>
 	<article class="project reveal">
           <h4 style="margin:0 0 6px">Telco Customer Churn Analysis</h4>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:13px">The project analyzes telecom churn using Power BI to understand why customers leave. It cleans and models data, builds key metrics, and presents insights through an interactive dashboard to support better retention decisions.</p>
-          <small style="color:var(--muted)">Power BI · Excel · DAX </small>
+          <p class="project-line"><strong>Problem:</strong> Churn behavior was unclear, making retention planning less effective.</p>
+          <p class="project-line"><strong>What I Did:</strong> Cleaned and modeled churn data, then designed KPI-driven Power BI visuals.</p>
+          <p class="project-line"><strong>Outcome:</strong> Produced an interactive dashboard for better retention-focused decisions.</p>
+          <small class="project-stack">Power BI · Excel · DAX </small>
           <div style="margin-top:10px"><a href="https://github.com/Chami-03/telco-churn-analysis" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">View on GitHub →</a></div>
         </article>
         <article class="project reveal">
           <h4 style="margin:0 0 6px">FitVital Hub - Role-Based Health Platform</h4>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:13px">Team-built platform with role-based dashboards (Admin, Doctor, Dietician, Patient). Implemented secure file uploads, payment integration, and notification flows. Emphasis on clean service patterns and normalized DB design.</p>
-          <small style="color:var(--muted)">Java · Spring Boot · MySQL · JPA</small>
+          <p class="project-line"><strong>Problem:</strong> Multi-role healthcare workflows needed one secure and unified platform.</p>
+          <p class="project-line"><strong>What I Did:</strong> Contributed role-based features, secure uploads, payment flow, and notifications.</p>
+          <p class="project-line"><strong>Outcome:</strong> Improved workflow coordination with clean service structure and normalized data design.</p>
+          <small class="project-stack">Java · Spring Boot · MySQL · JPA</small>
           <div style="margin-top:10px"><a href="https://github.com/Chami-03/FitVitalHub" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">View on GitHub →</a></div>
         </article>
         <article class="project reveal">
           <h4 style="margin:0 0 6px">Tutor Management System - OOP Module (SLIIT)</h4>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:13px">A full-stack tutor management app built to demonstrate Java OOP and layered architecture. Focus: reliable CRUD flows, student registration, session scheduling and feedback capture - designed with clear domain models & service layers.</p>
-          <small style="color:var(--muted)">Spring Boot · Java · HTML/CSS/JS</small>
+          <p class="project-line"><strong>Problem:</strong> Tutor operations required structured digital handling for reliability and scale.</p>
+          <p class="project-line"><strong>What I Did:</strong> Built layered modules for student registration, scheduling, and feedback workflows.</p>
+          <p class="project-line"><strong>Outcome:</strong> Delivered robust CRUD-based flows with clear OOP domain architecture.</p>
+          <small class="project-stack">Spring Boot · Java · HTML/CSS/JS</small>
           <div style="margin-top:10px"><a href="https://github.com/Chami-03/TuitionConnect" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">View on GitHub →</a></div>
-        </article>
-        <article class="project reveal">
-          <h4 style="margin:0 0 6px">Mobile Banking Redesign - UX & BA Sample</h4>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:13px">A BA-style case study: requirement elicitation, user journeys, and measurable KPIs. Produced SRS, flow diagrams and recommended UI changes to improve task completion and reduce user errors.</p>
-          <small style="color:var(--muted)">Figma · SRS · User Flows</small>
-          <div style="margin-top:10px"><a href="https://github.com/sample/mobile-banking-redesign" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">View on GitHub →</a></div>
         </article>
       </div>
     </section>
@@ -367,39 +368,58 @@
     <section id="education" class="reveal">
       <h3 style="margin:0 0 12px">Education</h3>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-        <h4 style="margin:0 0 6px">BSc (Hons) in Information Technology - Specialising in Information Systems Engineering</h4>
-        <p style="margin:0;color:var(--muted);font-size:13px">Sri Lanka Institute of Information Technology (SLIIT) - 2nd year (since 2024)</p>
+        <h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+          <span>BSc (Hons) in Information Technology - Specialising in Information Systems Engineering</span>
+          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">10/2024 - Present</span>
+        </h4>
+        <p style="margin:0;color:var(--muted);font-size:13px">Sri Lanka Institute of Information Technology (SLIIT) - 2nd year</p>
       </div>
 
     <section id="Certifications" class="reveal">
       <h3 style="margin:0 0 12px">Certifications</h3>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-	<h4 style="margin:0 0 6px">Foundations of Business Intelligence
-        <span style="font-weight: normal;"> - Google Business Intelligence Professional Certificate</span></h4>
+	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+          <span>Foundations of Business Intelligence
+            <span style="font-weight: normal;"> - Google Business Intelligence Professional Certificate</span>
+          </span>
+          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">01/2026</span>
+        </h4>
 	<p style="margin:0;color:var(--muted);font-size:13px">Google Career Certificates (Coursera)</p>
       </div>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-  	<h4 style="margin:0 0 6px">Foundations: Data, Data, Everywhere
-   	<span style="font-weight: normal;"> - Google Data Analytics Professional Certificate</span></h4>
+  	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+          <span>Foundations: Data, Data, Everywhere
+            <span style="font-weight: normal;"> - Google Data Analytics Professional Certificate</span>
+          </span>
+          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">01/2026</span>
+        </h4>
   	<p style="margin:0;color:var(--muted);font-size:13px">Google Career Certificates (Coursera)</p>
       </div>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-  	<h4 style="margin:0 0 6px">Introduction to Business Analysis
-	<span style="font-weight: normal;"> - IBM Business Analyst Professional Certificate</span></h4>
+  	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+          <span>Introduction to Business Analysis
+	        <span style="font-weight: normal;"> - IBM Business Analyst Professional Certificate</span>
+          </span>
+          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">12/2025</span>
+        </h4>
   	<p style="margin:0;color:var(--muted);font-size:13px">IBM Career Certificates (Coursera)</p>
       </div>
       <div class="project reveal" style="padding:18px;margin-bottom:12px">
-	<h4 style="margin:0 0 6px">Foundations of Project Management
-	<span style="font-weight: normal;"> - Google Project Management Professional Certificate</span></h4>
+	<h4 style="margin:0 0 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+          <span>Foundations of Project Management
+	        <span style="font-weight: normal;"> - Google Project Management Professional Certificate</span>
+          </span>
+          <span style="white-space:nowrap;font-size:12px;color:var(--muted);font-weight:600;">12/2025</span>
+        </h4>
     	<p style="margin:0;color:var(--muted);font-size:13px">Google Career Certificates (Coursera)</p>
       </div>
 
-      <h3 style="margin:48px 0 12px">Skills & Tools</h3>
+      <h3 style="margin:24px 0 12px">Skills & Tools</h3>
       <p style="margin:0;color:var(--muted);font-size:13px">Project Planning · Stakeholder Communication · Requirements Analysis · Requirement Gathering · Data Analysis · Data Visualization · SQL & MySQL · Power BI · Excel · Java (Spring Boot) · Git · UML & Flow Diagrams</p>
     </section>
 
     <section id="contact" style="margin-top:28px" class="reveal">
-      <div class="neo reveal" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div class="neo contact-card reveal">
         <div>
           <h4 style="margin:0 0 6px">Contact</h4>
           <p style="margin:0;color:var(--muted);font-size:13px">
@@ -410,7 +430,7 @@
           </p>
         </div>
 
-        <div style="display:flex;align-items:center;gap:12px">
+        <div class="contact-actions">
           <a href="https://www.linkedin.com/in/chamikarawijerathne/" target="_blank" title="LinkedIn">
             <img 
               src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
@@ -582,14 +602,17 @@
       window.onload = animate;
 
       const skills = [
-          'Business Analysis — Requirements, SRS, Use Cases.',
-          'Data Analysis — SQL queries, aggregation, validation.',
-          'Databases — MySQL design & normalization.',
-          'Backend — Java & Spring Boot fundamentals.',
-          'Systems — Architecture & integration thinking.',
-          'Visualisation — Power BI basics, storytelling.'
+          'Business Analysis - Requirements elicitation, SRS, use cases, user stories.',
+          'Data Analysis - SQL querying, data cleaning, aggregation, validation.',
+          'Database Systems - MySQL design, normalization, ER modeling.',
+          'Backend Development - Java fundamentals, Spring Boot basics, REST APIs.',
+          'Systems Engineering - System architecture, integration, workflow design.',
+          'Data Visualisation - Power BI dashboards, KPI design, insight storytelling.'
       ];
-      let skillIndex = 0;
+          // BoxGeometry material order: +X, -X, +Y, -Y, +Z, -Z
+          const faceToSkillMap = [0, 1, 2, 3, 4, 5];
+          const raycaster = new THREE.Raycaster();
+          const pointer = new THREE.Vector2();
       
       // Custom Message Box implementation (since alert() is forbidden)
       function showMessageBox(title, message) {
@@ -617,16 +640,31 @@
       }
 
 
-      // click cycles through skill notes (using a custom box instead of alert)
-      canvas.addEventListener('click', (e)=>{
-          // Prevent showing message box if dragging (only trigger on click/tap)
-          if (e._isDragging) return; 
-          showMessageBox('Skill Focus', skills[skillIndex]);
-          skillIndex = (skillIndex + 1) % skills.length;
+    // Click on a specific cube face and show the related skill.
+    canvas.addEventListener('click', (e)=>{
+      if (wasDragging) {
+        wasDragging = false;
+        return;
+      }
+
+      const rect = canvas.getBoundingClientRect();
+      pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(pointer, camera);
+      const hits = raycaster.intersectObject(cube, false);
+      if (!hits.length) return;
+
+      const faceMaterialIndex = hits[0].face && typeof hits[0].face.materialIndex === 'number'
+        ? hits[0].face.materialIndex
+        : 0;
+      const skillIndex = faceToSkillMap[faceMaterialIndex] ?? 0;
+      showMessageBox('Skill Focus', skills[skillIndex]);
       });
       
       // drag rotation logic
       let isDown=false, lastX=0, lastY=0, startX=0, startY=0;
+    let wasDragging = false;
       const DRAG_THRESHOLD = 5; // Pixels threshold to consider it a drag vs click
 
       const handlePointerDown = (e) => { 
@@ -637,7 +675,7 @@
           isDown = true; 
           startX = lastX = clientX;
           startY = lastY = clientY;
-          e.currentTarget._isDragging = false; // Reset drag flag
+            wasDragging = false;
           if(e.setPointerCapture) e.setPointerCapture(e.pointerId); 
       };
       const handlePointerUp = (e) => { 
@@ -646,11 +684,7 @@
           const dx = Math.abs(lastX - startX);
           const dy = Math.abs(lastY - startY);
           if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) {
-              // If movement exceeds threshold, mark as drag
-              canvas._isDragging = true;
-          } else {
-              // Otherwise, it was a click/tap
-              canvas._isDragging = false;
+              wasDragging = true;
           }
       };
       const handlePointerMove = (e) => { 
@@ -672,7 +706,7 @@
           const totalDx = Math.abs(clientX - startX);
           const totalDy = Math.abs(clientY - startY);
           if (totalDx > DRAG_THRESHOLD || totalDy > DRAG_THRESHOLD) {
-              canvas._isDragging = true;
+              wasDragging = true;
           }
       };
 
@@ -688,31 +722,17 @@
 
     })();
 
-    // Minimal "AI-powered" assistant UI — runs locally and returns structured suggestions for BA/DA
-    document.getElementById('openAssistant').addEventListener('click', ()=>{
-      const promptText = prompt('Describe what you want help with (example: "project summary", "BA case study", "SQL query")');
-      if(!promptText) return;
-      const out = localAssistant(promptText);
-      showMessageBox('AI Assistant Suggestion', out);
+    // Hero contact CTA
+    document.getElementById('contactMeBtn').addEventListener('click', ()=>{
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
-
-    function localAssistant(text){
-      text = (text||'').toLowerCase();
-      if(text.includes('ba')||text.includes('case')||text.includes('study')){
-        return 'Structure a BA case study:\n1) Project summary\n2) Business goal\n3) AS-IS vs TO-BE\n4) Requirements (MUST/HIGH/LOW)\n5) Deliverables (SRS, Flows)\n6) KPIs';
-      }
-      if(text.includes('sql')||text.includes('query')){
-        return 'SQL checklist:\n- SELECT columns\n- JOIN tables with keys\n- Use GROUP BY for aggregates\n- Apply WHERE for filtering and HAVING for aggregate filters';
-      }
-      if(text.includes('project')||text.includes('summary')){
-        return 'Project summary template:\nContext (1 line) · Stack · Problem solved · Key outcome · Next steps';
-      }
-      return 'Try: specify a goal (e.g. highlight SQL skills), role (BA/DA), and one deliverable (e.g. Power BI mock).';
-    }
 
     // Download resume
     document.getElementById('downloadResume').addEventListener('click', ()=>{
-      /* START OF REQUIRED CHANGE */
+      
       const pdfPath = './Chamikara_Wijerathne_Resume.pdf';
       const a = document.createElement('a');
       a.href = pdfPath; // Link to the local PDF file
@@ -720,7 +740,7 @@
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      /* END OF REQUIRED CHANGE */
+      
     });
 
     // small interaction for 'Hire me' button
